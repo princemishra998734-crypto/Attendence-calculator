@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendX - Attendance Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOGIN PAGE -->
+    <section id="loginPage" class="login-page">
+        <div class="login-box">
+            <h1>Attend<span>X</span></h1>
+            <p>Smart Attendance Calculator</p>
+
+            <form id="loginForm">
+                <input type="text" id="userName" placeholder="Enter your name" required>
+                <input type="email" id="userEmail" placeholder="Enter your email" required>
+                <input type="password" id="userPassword" placeholder="Enter password" required>
+                <button type="submit">Login to Dashboard</button>
+            </form>
+            <small>Demo login — create any name, email and password.</small>
+        </div>
+    </section>
+
+    <!-- MAIN APP -->
+    <div id="appPage" class="app hidden">
+
+        <aside class="sidebar">
+            <h2>Attend<span>X</span></h2>
+
+            <div class="user-info">
+                <div class="avatar" id="userAvatar">U</div>
+                <div>
+                    <strong id="sidebarName">Student</strong>
+                    <small>Student Account</small>
+                </div>
+            </div>
+
+            <nav>
+                <button class="nav-btn active" data-section="dashboard">▦ Dashboard</button>
+                <button class="nav-btn" data-section="attendance">✎ Attendance</button>
+                <button class="nav-btn" data-section="bunk">☕ Bunk Planner</button>
+            </nav>
+
+            <button id="logoutBtn" class="logout-btn">↪ Logout</button>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <h2 id="pageTitle">Dashboard</h2>
+                    <p>Welcome back, <span id="welcomeName">Student</span>!</p>
+                </div>
+                <div class="date" id="currentDate"></div>
+            </header>
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="content-section">
+                <div class="hero">
+                    <div>
+                        <h2>Your attendance, under control.</h2>
+                        <p>Track your classes and maintain your 75% goal.</p>
+                    </div>
+                    <div class="hero-icon">📚</div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p>Total Classes</p>
+                        <h2 id="totalStat">0</h2>
+                        <span>Classes conducted</span>
+                    </div>
+                    <div class="stat-card">
+                        <p>Present Classes</p>
+                        <h2 id="presentStat">0</h2>
+                        <span>Classes attended</span>
+                    </div>
+                    <div class="stat-card">
+                        <p>Absent Classes</p>
+                        <h2 id="absentStat">0</h2>
+                        <span>Classes missed</span>
+                    </div>
+                    <div class="stat-card">
+                        <p>Attendance</p>
+                        <h2 id="percentageStat">0%</h2>
+                        <span>Current percentage</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="panel attendance-panel">
+                        <h3>Attendance Overview</h3>
+                        <div class="circle" id="attendanceCircle">
+                            <div>
+                                <h2 id="circlePercent">0%</h2>
+                                <small>Attendance</small>
+                            </div>
+                        </div>
+                        <p class="status" id="attendanceStatus">Add your attendance details</p>
+                    </div>
+
+                    <div class="panel goal-panel">
+                        <h3>75% Attendance Goal</h3>
+                        <p>Your current progress</p>
+                        <div class="progress-track">
+                            <div id="goalProgress" class="progress-fill"></div>
+                        </div>
+                        <h2 id="goalPercent">0%</h2>
+                        <p id="goalMessage">Enter your attendance to calculate your goal.</p>
+                        <button class="primary-btn" data-go="attendance">Update Attendance</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ATTENDANCE -->
+            <section id="attendance" class="content-section hidden">
+                <div class="panel form-panel">
+                    <h3>Update Attendance</h3>
+                    <p>Enter your current class details below.</p>
+
+                    <form id="attendanceForm">
+                        <label>Total Classes Conducted</label>
+                        <input type="number" id="totalClasses" min="0" placeholder="Example: 100" required>
+
+                        <label>Classes Attended</label>
+                        <input type="number" id="presentClasses" min="0" placeholder="Example: 80" required>
+
+                        <button type="submit" class="primary-btn">Calculate Attendance</button>
+                    </form>
+
+                    <p id="formMessage" class="form-message"></p>
+                </div>
+            </section>
+
+            <!-- BUNK PLANNER -->
+            <section id="bunk" class="content-section hidden">
+                <div class="panel">
+                    <h3>☕ Bunk Planner</h3>
+                    <p>Check how many upcoming classes you can miss while staying at or above 75%.</p>
+
+                    <div class="bunk-result">
+                        <div>
+                            <span>Safe Bunks Available</span>
+                            <h1 id="bunkCount">0</h1>
+                            <small>Consecutive future classes</small>
+                        </div>
+                        <div class="bunk-icon">🎯</div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <h3>Classes Needed for 75%</h3>
+                    <div class="needed-result">
+                        <h1 id="neededCount">0</h1>
+                        <p id="neededMessage">Update your attendance to calculate.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer>© 2026 AttendX | Smart Attendance Management</footer>
+        </main>
+    </div>
+
+    <script src="java.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World!</h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html>
